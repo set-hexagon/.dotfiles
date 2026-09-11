@@ -63,7 +63,7 @@ local runner = "rofi -show run"
 hl.on("hyprland.start", function () 
 --  hl.exec_cmd("waybar")
 --  hl.exec_cmd("wpaperd -d")
-  hl.exec_cmd("caelestia shell -d")
+  hl.exec_cmd("noctalia")
   hl.exec_cmd("hypridle")
   hl.exec_cmd("playerctld daemon")
   hl.exec_cmd("hyprctl setcursor Bibata-Modern-Ice 20")
