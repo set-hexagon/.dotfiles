@@ -44,9 +44,10 @@ hl.monitor({
 
 -- Set programs that you use
 local terminal    = "ghostty"
-local fileManager = "nemo"
+local fileManager = "nautilus"
 local menu        = "hyprlauncher"
 local browser = "firefox"
+-- local launcher = "caelestia shell drawers toggle launcher"
 local launcher = "rofi -show drun -show-icons"
 local runner = "rofi -show run"
 
@@ -60,8 +61,10 @@ local runner = "rofi -show run"
 -- Or execute your favorite apps at launch like this:
 --
 hl.on("hyprland.start", function () 
-  hl.exec_cmd("waybar")
-  hl.exec_cmd("wpaperd -d")
+--  hl.exec_cmd("waybar")
+--  hl.exec_cmd("wpaperd -d")
+  hl.exec_cmd("caelestia shell -d")
+  hl.exec_cmd("hypridle")
   hl.exec_cmd("playerctld daemon")
   hl.exec_cmd("hyprctl setcursor Bibata-Modern-Ice 20")
   hl.exec_cmd("systemctl --user start hyprpolkitagent")
@@ -240,7 +243,7 @@ hl.config({
         kb_layout  = "us",
         kb_variant = "",
         kb_model   = "",
-        kb_options = "",
+        kb_options = "caps:escape",
         kb_rules   = "",
 
         follow_mouse = 1,
@@ -282,7 +285,7 @@ hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd(launcher))
 hl.bind(secondMod .. " + Space", hl.dsp.exec_cmd(runner))
 hl.bind("PRINT", hl.dsp.exec_cmd("hyprshot -m window -o ~/Pictures/screenshots/"))
 hl.bind("SHIFT + PRINT", hl.dsp.exec_cmd("hyprshot -m region -o ~/Pictures/screenshots/"))
-hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
+hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("noctalia msg session lock"))
 
 local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
@@ -396,3 +399,6 @@ hl.window_rule({
     move  = "20 monitor_h-120",
     float = true,
 })
+
+-- HyprMod managed settings
+require("hyprland-gui")

@@ -4,3 +4,5 @@ background-blur = true
 theme = "Ayu"
 
 command='/usr/bin/zsh'
+
+confirm-close-surface = false
